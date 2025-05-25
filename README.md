@@ -3,27 +3,6 @@
 This repository contains Kubernetes YAML configurations for three practical tasks involving ConfigMaps, Deployments, shared volumes, Services, and Ingress.
 
 ---
-##  Task 1 – ConfigMap + Alpine Deployment
-
-###  Objective
-- Create a ConfigMap with the value: `name = tauhid`.
-- Create a Deployment with:
-  - 1 replica.
-  - Alpine image.
-  - A container that runs a custom command:
-    - Infinite loop
-    - Echo the ConfigMap value (`$NAME`)
-    - Sleep 5 seconds
-
-###  Files:
-- `task1/configmap.yaml`
-- `task1/deployment.yaml`
-
-# Kubernetes Exam Tasks 
-
-This repository contains Kubernetes YAML configurations for three practical tasks involving ConfigMaps, Deployments, shared volumes, Services, and Ingress.
-
----
 ## Task 1 – ConfigMap + Alpine Deployment
 
 ### Objective
@@ -89,10 +68,10 @@ kubectl apply -f task3/service.yaml
 kubectl apply -f task3/ingress.yaml
 
 # (Optional - for local testing)
-echo "127.0.0.1 example.com" | sudo tee -a /etc/hosts
+echo "127.0.0.1 testsite.com" | sudo tee -a /etc/hosts
 
 # Verify via curl
-curl http://example.com
+curl http://testsite.com
 
-Md Tauhidul Islam
+# Md Tauhidul Islam
 GitHub: QALeadTauhid
