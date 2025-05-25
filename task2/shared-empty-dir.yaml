@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shared-empty-dir
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shared-vol
+  template:
+    metadata:
+      labels:
+        app: shared-vol
+    spec:
+      containers:
+      - name: container1
+        image: alpine
+        command: ["/bin/sh", "-c", "sleep 3600"]
+        volumeMounts:
+        - name: shared-data
+          mountPath: /shared
+
+      - name: container2
+        image: alpine
+        command: ["/bin/sh", "-c", "sleep 3600"]
+        volumeMounts:
+        - name: shared-data
+          mountPath: /shared
+
+      - name: container3
+        image: alpine
+        command: ["/bin/sh", "-c", "sleep 3600"]
+        volumeMounts:
+        - name: shared-data
+          mountPath: /shared
+
+      volumes:
+      - name: shared-data
+        emptyDir: {}
